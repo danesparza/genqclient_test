@@ -32,16 +32,22 @@ func (v *getUserResponse) GetUser() getUserUser { return v.User }
 type getUserUser struct {
 	// The user's public profile name.
 	Name string `json:"name"`
+	// The user's public profile bio.
+	Bio string `json:"bio"`
 }
 
 // GetName returns getUserUser.Name, and is useful for accessing the field via an interface.
 func (v *getUserUser) GetName() string { return v.Name }
+
+// GetBio returns getUserUser.Bio, and is useful for accessing the field via an interface.
+func (v *getUserUser) GetBio() string { return v.Bio }
 
 // The query or mutation executed by getUser.
 const getUser_Operation = `
 query getUser ($login: String!) {
 	user(login: $login) {
 		name
+		bio
 	}
 }
 `

@@ -46,7 +46,7 @@ func main() {
 		return
 	}
 
-	log.Info().Str("Name", resp.User.Name).Msg("Success!")
+	log.Info().Str("Name", resp.User.Name).Str("bio", resp.User.Bio).Msg("Success!")
 }
 
 //go:generate go run github.com/Khan/genqlient genqlient.yaml
